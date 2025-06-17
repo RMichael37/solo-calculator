@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Business ROI Calculator - AI-Powered Coaching & Consulting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        input[type="number"] { -moz-appearance: textfield; }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    </style>
+</head>
+<body class="bg-gray-100 py-8">
+    <div class="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 flex items-center gap-3 mb-2">
+                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                </svg>
+                Solo Business ROI Calculator
+            </h1>
+            <p class="text-gray-600">AI-Powered Coaching & Consulting Business Projections</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <!-- Revenue Streams -->
+            <div class="bg-green-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-green-800 mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Revenue Streams (Monthly)
+                </h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            1-on-1 Coaching ($/hour | # of clients)
+                        </label>
+                        <div class="flex gap-2">
+                            <input type="number" id="oneOnOneRate" value="250" class="flex-1 px-3 py-2 border rounded-md" placeholder="Rate">
+                            <input type="number" id="oneOnOneClients" value="5" class="w-24 px-3 py-2 border rounded-md" placeholder="Clients">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Group Coaching ($/person | # participants)
+                        </label>
+                        <div class="flex gap-2">
+                            <input type="number" id="groupRate" value="100" class="flex-1 px-3 py-2 border rounded-md" placeholder="Rate">
+                            <input type="number" id="groupParticipants" value="10" class="w-24 px-3 py-2 border rounded-md" placeholder="People">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Online Course ($/course | # monthly sales)
+                        </label>
+                        <div class="flex gap-2">
+                            <input type="number" id="coursePrice" value="997" class="flex-1 px-3 py-2 border rounded-md" placeholder="Price">
+                            <input type="number" id="courseSales" value="5" class="w-24 px-3 py-2 border rounded-md" placeholder="Sales">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Workshops - Bi-monthly ($/ticket | # attendees)
+                        </label>
+                        <div class="flex gap-2">
+                            <input type="number" id="workshopPrice" value="497" class="flex-1 px-3 py-2 border rounded-md" placeholder="Price">
+                            <input type="number" id="workshopAttendees" value="8" class="w-24 px-3 py-2 border rounded-md" placeholder="People">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expenses -->
+            <div class="bg-red-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-red-800 mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                    Monthly Expenses
+                </h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Software Tools & AI Subscriptions ($)
+                        </label>
+                        <input type="number" id="softwareTools" value="300" class="w-full px-3 py-2 border rounded-md">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Marketing & Advertising ($)
+                        </label>
+                        <input type="number" id="marketing" value="500" class="w-full px-3 py-2 border rounded-md">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Professional Development ($)
+                        </label>
+                        <input type="number" id="professionalDev" value="200" class="w-full px-3 py-2 border rounded-md">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Business Coaching ($)
+                        </label>
+                        <input type="number" id="businessCoaching" value="500" class="w-full px-3 py-2 border rounded-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Income Goal -->
+        <div class="bg-blue-50 p-6 rounded-lg mb-8">
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+                Monthly Income Goal ($)
+            </label>
+            <input type="number" id="incomeGoal" value="10000" class="w-full px-3 py-2 border rounded-md">
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="grid md:grid-cols-3 gap-4 mb-8">
+            <div class="bg-purple-100 p-4 rounded-lg text-center">
+                <svg class="w-8 h-8 text-purple-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <h3 class="font-semibold text-purple-800">Break-Even</h3>
+                <p class="text-2xl font-bold text-purple-900" id="breakEvenDisplay">Calculating...</p>
+            </div>
+
+            <div class="bg-indigo-100 p-4 rounded-lg text-center">
+                <svg class="w-8 h-8 text-indigo-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+                <h3 class="font-semibold text-indigo-800">Goal Achievement</h3>
+                <p class="text-2xl font-bold text-indigo-900" id="goalDisplay">Calculating...</p>
+            </div>
+
+            <div class="bg-teal-100 p-4 rounded-lg text-center">
+                <svg class="w-8 h-8 text-teal-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <h3 class="font-semibold text-teal-800">AI Leverage</h3>
+                <p class="text-2xl font-bold text-teal-900">100% Solo</p>
+            </div>
+        </div>
+
+        <!-- 5-Year Projections -->
+        <div class="bg-gray-50 p-6 rounded-lg">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">5-Year Projections (60% YoY Growth)</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="text-left p-2">Year</th>
+                            <th class="text-right p-2">Monthly Revenue</th>
+                            <th class="text-right p-2">Annual Revenue</th>
+                            <th class="text-right p-2">Net Profit</th>
+                            <th class="text-right p-2">ROI %</th>
+                            <th class="text-right p-2">Client Capacity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projectionsTable">
+                        <!-- Projections will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-yellow-50 rounded-lg flex items-start gap-2">
+            <svg class="w-5 h-5 text-yellow-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+            <p class="text-sm text-yellow-800">
+                <strong>Note:</strong> This calculator assumes moderate growth (60% YoY) and leverages AI agents for scaling without employees. 
+                Actual results may vary based on market conditions, execution, and AI tool effectiveness.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Get all input elements
+        const inputs = {
+            oneOnOneRate: document.getElementById('oneOnOneRate'),
+            oneOnOneClients: document.getElementById('oneOnOneClients'),
+            groupRate: document.getElementById('groupRate'),
+            groupParticipants: document.getElementById('groupParticipants'),
+            coursePrice: document.getElementById('coursePrice'),
+            courseSales: document.getElementById('courseSales'),
+            workshopPrice: document.getElementById('workshopPrice'),
+            workshopAttendees: document.getElementById('workshopAttendees'),
+            softwareTools: document.getElementById('softwareTools'),
+            marketing: document.getElementById('marketing'),
+            professionalDev: document.getElementById('professionalDev'),
+            businessCoaching: document.getElementById('businessCoaching'),
+            incomeGoal: document.getElementById('incomeGoal')
+        };
+
+        // Calculate function
+        function calculate() {
+            // Get values
+            const revenue = {
+                oneOnOne: parseFloat(inputs.oneOnOneRate.value) * parseFloat(inputs.oneOnOneClients.value) * 4,
+                group: parseFloat(inputs.groupRate.value) * parseFloat(inputs.groupParticipants.value) * 4,
+                courses: parseFloat(inputs.coursePrice.value) * parseFloat(inputs.courseSales.value),
+                workshops: parseFloat(inputs.workshopPrice.value) * parseFloat(inputs.workshopAttendees.value) * 0.5
+            };
+
+            const expenses = 
+                parseFloat(inputs.softwareTools.value) + 
+                parseFloat(inputs.marketing.value) + 
+                parseFloat(inputs.professionalDev.value) + 
+                parseFloat(inputs.businessCoaching.value);
+
+            const incomeGoal = parseFloat(inputs.incomeGoal.value);
+            const yearlyGrowthRate = 0.60;
+
+            // Calculate projections
+            let projections = [];
+            let totalInvestment = 0;
+            let breakEvenMonth = 0;
+            let goalMonth = 0;
+
+            for (let year = 1; year <= 5; year++) {
+                const growthMultiplier = Math.pow(1 + yearlyGrowthRate, year - 1);
+                const monthlyRevenue = (revenue.oneOnOne + revenue.group + revenue.courses + revenue.workshops) * growthMultiplier;
+                const yearlyRevenue = monthlyRevenue * 12;
+                const yearlyExpenses = expenses * 12;
+                const netProfit = yearlyRevenue - yearlyExpenses;
+                
+                totalInvestment += yearlyExpenses;
+                const roi = totalInvestment > 0 ? ((yearlyRevenue - totalInvestment) / totalInvestment) * 100 : 0;
+
+                // Check break-even
+                if (breakEvenMonth === 0 && monthlyRevenue > expenses) {
+                    breakEvenMonth = (year - 1) * 12 + 1;
+                }
+
+                // Check income goal
+                if (goalMonth === 0 && monthlyRevenue >= incomeGoal) {
+                    goalMonth = (year - 1) * 12 + 1;
+                }
+
+                projections.push({
+                    year,
+                    monthlyRevenue,
+                    yearlyRevenue,
+                    yearlyExpenses,
+                    netProfit,
+                    roi,
+                    clientCapacity: Math.round((parseFloat(inputs.oneOnOneClients.value) + parseFloat(inputs.groupParticipants.value) / 5) * growthMultiplier)
+                });
+            }
+
+            // Update displays
+            document.getElementById('breakEvenDisplay').textContent = 
+                breakEvenMonth > 0 ? `Month ${breakEvenMonth}` : 'Beyond 5 years';
+            
+            document.getElementById('goalDisplay').textContent = 
+                goalMonth > 0 ? `Month ${goalMonth}` : 'Beyond 5 years';
+
+            // Update table
+            const tbody = document.getElementById('projectionsTable');
+            tbody.innerHTML = projections.map(proj => `
+                <tr class="border-b">
+                    <td class="p-2 font-medium">Year ${proj.year}</td>
+                    <td class="text-right p-2">$${proj.monthlyRevenue.toLocaleString('en-US', {maximumFractionDigits: 0})}</td>
+                    <td class="text-right p-2">$${proj.yearlyRevenue.toLocaleString('en-US', {maximumFractionDigits: 0})}</td>
+                    <td class="text-right p-2 font-semibold ${proj.netProfit >= 0 ? 'text-green-600' : 'text-red-600'}">
+                        $${proj.netProfit.toLocaleString('en-US', {maximumFractionDigits: 0})}
+                    </td>
+                    <td class="text-right p-2 font-bold text-blue-600">${proj.roi.toFixed(1)}%</td>
+                    <td class="text-right p-2">${proj.clientCapacity}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Add event listeners
+        Object.values(inputs).forEach(input => {
+            input.addEventListener('input', calculate);
+        });
+
+        // Initial calculation
+        calculate();
+    </script>
+</body>
+</html>
